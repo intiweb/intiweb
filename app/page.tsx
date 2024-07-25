@@ -1,35 +1,30 @@
-import Link from "next/link";
-import Options from "./components/options";
 import Container from "./components/web/container";
 import Button from "./components/web/button";
-import Image from "next/image";
+import Navigation from "./components/navigation";
+import Header from "./components/header";
+import Link from "next/link";
+import Footer from "./components/footer";
 
 export default function Home() {
   return (
     <div>
-      <header className="w-full bg-white fixed z-30">
-        <Container className="py-3">
-          <h1 className="capitalize text-3xl font-extrabold">intiweb</h1>
-        </Container>
-      </header>
-      <section className="min-h-[110vh] py-20 bg-gradient-to-tr from-orange-600 to-yellow-500">
-        <Container className="h-full flex flex-col gap-8 justify-center items-center pt-10">
-          <h1 className="w-5/6 text-9xl text-center text-white">Crea tu página web profesional</h1>
-          <p className="text-2xl">¿Qué tipo de sitio web te gustaría crear?</p>
-          <Options />
+      <Navigation />
+      <Header />
+      <Container className="grid grid-cols-2 py-20">
+        <article>
+          <p className="w-3/4 text-3xl font-semibold">La libertad de crear la página web que quieras</p>
+        </article>
+        <article className="flex flex-col gap-6">
+          <p className="w-3/4">Diseña y crea tu propia página web con calidad profesional. Ya sea que estés promocionando tu negocio, mostrando tu trabajo, abriendo tu tienda online o comenzando un blog, puedes hacerlo todo con <strong>intiweb</strong></p>
           <Link href={"/"}>
-            <Button className="text-xl font-bold tracking-wider rounded-full px-8 border-2 bg-white text-slate-900
-              hover:bg-slate-900 hover:border-slate-900 hover:text-white">
+            <Button className="text-xl font-bold tracking-wider rounded-full px-8 border-2 bg-slate-900 text-white
+              hover:bg-white hover:border-white hover:text-slate-900">
               comenzar
             </Button>
           </Link>
-          <Image 
-            src={'/website-demo.png'}
-            alt="website"
-            width={1024}
-            height={768} />
-        </Container>
-      </section>
+        </article>
+      </Container>
+      <Footer />
     </div>
   );
 }
